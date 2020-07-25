@@ -1,44 +1,18 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Lecture Text:
+1) useState 
+Наверное самый простой хук, механика которого понятна, однако понимание того, как он работает приходит со временем. В аргументы хука мы кладём дефолтное значение. Хук возвращает нам константу с этим значением и функцию для ее перезаписи. Подробнее вы можете почитать в документации. 
 
-## Available Scripts
+В отличие от метода setState, который вы можете найти в классовых компонентах, useState не объединяет объекты обновления автоматически. (Тут пример). 
 
-In the project directory, you can run:
+Вы можете повторить это поведение, используя спред оператор. О таких вещах также предупреждает тайпскрипт (очень рекомендую его использование в место  Js. Помогает избежать многих ошибок, контролировать приложение, а со временем начинает буквально писать код за вас. На ютьюбе достаточно много роликов занимающих часа 2-3 где подробно рассказывается об интеграции тайпскрипта в реакт).Ну а вообще, во избежание таких ситуаций можно написать свой отдельный useState для каждого значения объекта или использовать  useReducer (нет).
 
-### `yarn start`
+Что хотелось бы дополнительно отметить (на примере счетчика ).
+Нас интересует строка <p>Counter value: {count}</p>
+В нашем примере count — это просто число. Это не «привязка данных», не «объект-наблюдатель» или что угодно другое. Перед нами —  число, вроде этого const count = 43;
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+React вызывает компонент всякий раз, когда мы обновляем состояние. В результате каждая операция рендеринга «видит» собственное значение состояния counter, которое, внутри функции, является константой. В результате нет никакой магии, строка просто встраивает числовое значение в код, формируемый при рендеринге. Это число предоставляется средствами React. 
+Главный вывод, который можно из этого сделать, заключается в том, что count является константой внутри любого конкретного рендера и со временем не меняется. Т.е. меняется компонент, который вызывается снова и снова. Каждый рендер «видит» собственное значение count, которое оказывается изолированным и неизменным для каждой из операций рендеринга.
+(Далее пример с setTimeout). 
+Также неизменными для каждого рендера остаются и обработчики событий. По сути, в каждом рендере мы используем свою функцию, в которой лежит свой count. Внутри каждого конкретного рендера свойства и состояние всегда остаются одними и теми же. То же самое происходит и с любыми механизмами, использующими их (включая обработчики событий). Они тоже «принадлежат» конкретным рендерам. Поэтому даже асинхронные функции внутри обработчиков событий будут «видеть» те же самые значения count.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+2) useEffect
