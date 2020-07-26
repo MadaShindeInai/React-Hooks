@@ -1,108 +1,54 @@
-import React, {useState, useRef, useEffect} from 'react';
+import React, {useState, useRef, useEffect, useCallback, useMemo} from 'react';
 import logo from '../../assets/images/svg/logo.svg';
-import NeApp from '../NeApp'
 import './index.css';
+
+function compareNumbers(a, b) {
+  return a - b;
+}
+
+const makeHelloooo = (hello) => {
+  const Helloooo = `${hello}ooo`;
+  console.log('Not rerendered');
+  return Helloooo;
+};
+
 
 const App = () => {
   const [count, setCount] = useState(0);
-  const buttonRef = useRef(null);
-  // const latestCount = useRef(count);
-
+  const hello = 'Hello';
   useEffect(() => {
     document.title = `You clicked ${count} times`;
   });
+  
   // 1
+  // const clickAlert = useCallback(() =>  {alert(`I am click ${count}`)},[count]);
+  
   // useEffect(() => {
-  //   console.log('App',buttonRef);
   //   const clickAlert = () =>  alert(`I am click ${count}`);
-  //   // window.addEventListener('click', clickAlert)
-  //   // return () => window.removeEventListener('click', clickAlert)
   //   const button = buttonRef.current;
   //   button.addEventListener('click', clickAlert)
   //   return () => button.removeEventListener('click', clickAlert)
   // },[count]);
-
-  // 2
-
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     console.log(`You clicked ${count} times`);
-  //   }, 3000);
-  // });
-  // !!!!!!!!!!!
-  // useEffect(() => {
-  //   // Установить мутабельное значение в самое свежее состояние count
-  //   latestCount.current = count;
-  //   setTimeout(() => {
-  //     // Прочитать мутабельное значение с самыми свежими данными
-  //     console.log(`You clicked ${latestCount.current} times`);
-  //   }, 3000);
-  // });
-
-  // componentDidUpdate() {
-  //   setTimeout(() => {
-  //     console.log(`You clicked ${this.state.count} times`);
-  //   }, 3000);
-  // }
+  
+  //2
+  const memoisedmakeHelloooo = useMemo(()=> makeHelloooo(hello),[hello])
 
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>Counter value: {count}</p>
+          <p>{makeHelloooo(hello)}</p>
+          {/* <p>{memoisedmakeHelloooo}</p> */}
         <div
-          ref={buttonRef}
           className="App-link"
           onClick={() => setCount(count + 1)}
         >
           Click to +1 count
         </div>
-        <NeApp count={count} ref={buttonRef}/>
       </header>
     </div>
   );
-}
+} 
 
 export default App;
-
-
-// function Counter() {
-//   // ...
-
-//   useEffect(
-//     // Функция эффекта из первого рендера
-//     () => {
-//       document.title = `You clicked ${0} times`;
-//     }
-//   );
-//   // ...
-
-// }
-
-// // После щелчка наша функция вызывается снова
-// function Counter() {
-//   // ...
-
-//   useEffect(
-//     // Функция эффекта из второго рендера
-//     () => {
-//       document.title = `You clicked ${1} times`;
-//     }
-//   );
-//   // ...
-
-// }
-
-// // После ещё одного щелчка функция вызывается снова
-// function Counter() {
-//   // ...
-
-//   useEffect(
-//     // Функция эффекта из третьего рендера
-//     () => {
-//       document.title = `You clicked ${2} times`;
-//     }
-//   );
-//   // ..
-
-// }
