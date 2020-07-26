@@ -1,40 +1,41 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useRef, useEffect} from 'react';
 import logo from '../../assets/images/svg/logo.svg';
+import NeApp from '../NeApp'
 import './index.css';
 
 const App = () => {
   const [count, setCount] = useState(0);
-  // const [count2, setCount2] = useState(0);
+  const buttonRef = useRef(null);
+  // const latestCount = useRef(count);
+
   useEffect(() => {
     document.title = `You clicked ${count} times`;
   });
-
   // 1
   // useEffect(() => {
-  //   window.addEventListener('click', () => alert(`I am click ${count}`))
-  // });
-
-  // 2
-  
-  // const clickAlert = () =>  alert(`I am click ${count}`);
-  // useEffect(() => {
-  //   window.addEventListener('click', clickAlert)
-  //   return () => window.removeEventListener('click', clickAlert)
-  // // eslint-disable-next-line react-hooks/exhaustive-deps
-  // },[]);
-
-  // 3
-  
-  // useEffect(() => {
-  //   console.log('hey, i`m count',count);
-  // // eslint-disable-next-line react-hooks/exhaustive-deps
+  //   console.log('App',buttonRef);
+  //   const clickAlert = () =>  alert(`I am click ${count}`);
+  //   // window.addEventListener('click', clickAlert)
+  //   // return () => window.removeEventListener('click', clickAlert)
+  //   const button = buttonRef.current;
+  //   button.addEventListener('click', clickAlert)
+  //   return () => button.removeEventListener('click', clickAlert)
   // },[count]);
 
-  // 4
+  // 2
 
   // useEffect(() => {
   //   setTimeout(() => {
   //     console.log(`You clicked ${count} times`);
+  //   }, 3000);
+  // });
+  // !!!!!!!!!!!
+  // useEffect(() => {
+  //   // Установить мутабельное значение в самое свежее состояние count
+  //   latestCount.current = count;
+  //   setTimeout(() => {
+  //     // Прочитать мутабельное значение с самыми свежими данными
+  //     console.log(`You clicked ${latestCount.current} times`);
   //   }, 3000);
   // });
 
@@ -49,19 +50,14 @@ const App = () => {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>Counter value: {count}</p>
-        {/* <p>Counter2 value: {count2}</p> */}
         <div
+          ref={buttonRef}
           className="App-link"
           onClick={() => setCount(count + 1)}
         >
           Click to +1 count
         </div>
-        {/* <div
-          className="App-link"
-          onClick={() => setCount2(count2 + 1)}
-        >
-          Click to +1 count2
-        </div> */}
+        <NeApp count={count} ref={buttonRef}/>
       </header>
     </div>
   );
