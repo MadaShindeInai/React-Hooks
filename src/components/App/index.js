@@ -16,19 +16,19 @@ const App = () => {
 
   // 2
   
-  // const clickAlert = () =>  alert(`I am click ${count}`);
+  
   // useEffect(() => {
+  //   const clickAlert = () =>  alert(`I am click ${count}`);
   //   window.addEventListener('click', clickAlert)
   //   return () => window.removeEventListener('click', clickAlert)
-  // // eslint-disable-next-line react-hooks/exhaustive-deps
-  // },[]);
+  // },[count]);
 
   // 3
   
   // useEffect(() => {
-  //   console.log('hey, i`m count',count);
+  //   console.log('hey, i`m count', count);
   // // eslint-disable-next-line react-hooks/exhaustive-deps
-  // },[count]);
+  // },[]);
 
   // 4
 
