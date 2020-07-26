@@ -8,6 +8,11 @@ class App extends Component<any, any> {
     this.state = {count: 0};
   }
 
+  componentDidMount() {
+    setTimeout(() => {
+      console.log(`You clicked ${this.state.count} times`);
+    }, 3000);
+  }
   componentDidUpdate() {
     setTimeout(() => {
       console.log(`You clicked ${this.state.count} times`);

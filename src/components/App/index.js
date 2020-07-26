@@ -32,11 +32,11 @@ const App = () => {
 
   // 4
 
-  useEffect(() => {
-    setTimeout(() => {
-      console.log(`You clicked ${count} times`);
-    }, 3000);
-  });
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     console.log(`You clicked ${count} times`);
+  //   }, 3000);
+  // });
 
   // componentDidUpdate() {
   //   setTimeout(() => {
