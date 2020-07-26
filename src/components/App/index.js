@@ -1,6 +1,6 @@
 import React, {useState, useRef, useEffect} from 'react';
 import logo from '../../assets/images/svg/logo.svg';
-import NeApp from '../NeApp'
+// import NeApp from '../NeApp'
 import './index.css';
 
 const App = () => {
@@ -14,7 +14,7 @@ const App = () => {
   // 1
   // useEffect(() => {
   //   console.log('App',buttonRef);
-  //   const clickAlert = () =>  alert(`I am click ${count}`);
+  //   const clickAlert = () =>  console.log(`I am click ${count}`);
   //   // window.addEventListener('click', clickAlert)
   //   // return () => window.removeEventListener('click', clickAlert)
   //   const button = buttonRef.current;
@@ -57,7 +57,7 @@ const App = () => {
         >
           Click to +1 count
         </div>
-        <NeApp count={count} ref={buttonRef}/>
+        {/* <NeApp count={count} ref={buttonRef}/> */}
       </header>
     </div>
   );
