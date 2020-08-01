@@ -1,8 +1,8 @@
 import React from 'react';
 import '../App/index.css';
-import NeApp1 from '../NeApp1';
+import NeApp2 from '../NeApp2';
 
-const NeApp = (props) => {
+const NeApp1 = (props) => {
   const {count} = props;
 
   return (
@@ -13,9 +13,9 @@ const NeApp = (props) => {
       >
         NeApp1 Count:{count}
       </div>
-      <NeApp1 count={count}/>
+      <NeApp2 count={count}/>
     </>
   );
 };
 
-export default NeApp;
+export default NeApp1;

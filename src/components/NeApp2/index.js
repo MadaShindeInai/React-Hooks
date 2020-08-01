@@ -1,8 +1,8 @@
 import React from 'react';
 import '../App/index.css';
-import NeApp1 from '../NeApp1';
+import NeApp3 from '../NeApp3';
 
-const NeApp = (props) => {
+const NeApp2 = (props) => {
   const {count} = props;
 
   return (
@@ -11,11 +11,11 @@ const NeApp = (props) => {
         className="App-link"
         onClick={() => {}}
       >
-        NeApp1 Count:{count}
+        NeApp2 Count:{count}
       </div>
-      <NeApp1 count={count}/>
+      <NeApp3 count={count}/>
     </>
   );
 };
 
-export default NeApp;
+export default NeApp2;
