@@ -13,7 +13,7 @@ import './index.css';
 //   console.log('Rendered');
 //   return arr.join(',');
 // };
-// const arrT= [10,9,8,7,6,5,4,3,2,1,0];
+// const arrT= [10,9,8,7,6,5,4,3,2,1,0]; массив данных который мы откуда-то забрали
 
 
 const App = () => {
