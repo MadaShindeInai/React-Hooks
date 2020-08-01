@@ -11,7 +11,7 @@ const NeApp2 = (props) => {
         className="App-link"
         onClick={() => {}}
       >
-        NeApp2 Count:{count}
+        NeApp2 No need count value but get it
       </div>
       <NeApp3 count={count}/>
     </>
