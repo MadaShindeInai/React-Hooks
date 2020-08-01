@@ -1,11 +1,12 @@
 import React, {useState, useRef, useEffect} from 'react';
 import logo from '../../assets/images/svg/logo.svg';
-// import NeApp from '../NeApp'
+import NeApp from '../NeApp'
 import './index.css';
 
 const App = () => {
   const [count, setCount] = useState(0);
   const buttonRef = useRef(null);
+  const buttonRef2 = useRef(null);
   // const latestCount = useRef(count);
 
   useEffect(() => {
@@ -45,6 +46,10 @@ const App = () => {
   //   }, 3000);
   // }
 
+  useEffect(() => {
+    setTimeout(()=> buttonRef2.current.style.backgroundColor="red", 5000)
+  }, [])
+
   return (
     <div className="App">
       <header className="App-header">
@@ -57,7 +62,7 @@ const App = () => {
         >
           Click to +1 count
         </div>
-        {/* <NeApp count={count} ref={buttonRef}/> */}
+        <NeApp count={count} ref={buttonRef2} buttonRef={buttonRef}/>
       </header>
     </div>
   );

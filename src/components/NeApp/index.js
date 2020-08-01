@@ -1,23 +1,19 @@
-import React, {forwardRef,useState, useEffect} from 'react';
+import React, {forwardRef, useEffect} from 'react';
 import '../App/index.css';
 
-const NeApp = forwardRef((props, ref) => {
-  const {count} = props;
-  const [value, setValue] = useState(null);
+const NeApp = forwardRef(({count, buttonRef}, ref) => {
 
   useEffect(() => {
-    const testRef = ref.current;
-    console.log('neApp',ref);
-    setValue(testRef.offsetLeft);
-    setTimeout(()=> testRef.style.backgroundColor="red", 5000)
-  }, [ref, value])
+    setTimeout(()=> buttonRef.current.style.backgroundColor="red", 2000)
+  }, [buttonRef])
 
   return (
         <div
           className="App-link"
+          ref={ref}
           onClick={() => {}}
         >
-          CurrentOffset&Count: {value}&{count}
+          CurrentOffset&Count: {count}
         </div>
   );
 });
