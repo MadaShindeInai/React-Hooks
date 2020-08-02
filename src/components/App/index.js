@@ -16,7 +16,6 @@ const App = () => {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>Counter App value: {count}</p>
         <div
           className="App-link"
           ref={buttonRef}
