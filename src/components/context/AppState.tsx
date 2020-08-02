@@ -15,7 +15,7 @@ export const AppContext = createContext({} as AppContextType);
 export const AppState: FC<any> = ({children}) => {
   const initialState = {
     count: 0,
-    id: Date.now.toString()
+    id: Date.now().toString()
   }
   const [state, dispatch] = useReducer(appReducer, initialState);
 

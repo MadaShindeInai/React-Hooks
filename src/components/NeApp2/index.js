@@ -1,19 +1,24 @@
 import React from 'react';
 import '../App/index.css';
 import NeApp3 from '../NeApp3';
+import {AppContext} from '../context/AppState'
 
-const NeApp2 = (props) => {
-  const {count} = props;
-
+const NeApp2 = () => {
+  const {state:{count, id}} = React.useContext(AppContext);
+  React.useEffect(() => {
+    document.title = `You clicked ${count} times`;
+  });
+  const ultraString = id.slice(count);
   return (
     <>
       <div
         className="App-link"
         onClick={() => {}}
       >
-        NeApp2 No need count value but get it
+        NeApp2 No need count value and do not get it
       </div>
-      <NeApp3 count={count}/>
+  {/* <p>Ultra string from id and count: {ultraString}</p> */}
+      <NeApp3 />
     </>
   );
 };
