@@ -1,15 +1,14 @@
 import React, {useContext} from 'react';
 import '../App/index.css';
-import {COUNT_ZERO} from '../../constants';
 import {AppContext} from '../context/AppState'
 
-const NeApp3 = (props) => {
-  const {state:{count}, dispatch} = useContext(AppContext);
+const NeApp3 = () => {
+  const {state:{count}, makeZero} = useContext(AppContext);
   return (
     <>
       <div
         className="App-link"
-        onClick={() => dispatch({type: COUNT_ZERO})}
+        onClick={() => makeZero()}
       >
         NeApp3 Count:{count}
       </div>
