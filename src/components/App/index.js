@@ -2,6 +2,38 @@ import React, {useState} from 'react';
 import logo from '../../assets/images/svg/logo.svg';
 import './index.css';
 
+// Если мы начнем с счетчика, установленного в 0, это будет всего три вызова setCount (1).
+// Это связано с тем, что реакт группирует изменения стэйта для оптимизации и применяет их однократно, а значит
+//  все три раза мы получим значение 0.
+// const [count, setCount] = useState(0);
+
+// function increment() {
+//   setCount(count + 1);
+// }
+
+// function handleClick() {
+//   increment();
+//   increment();
+//   increment();
+// }
+
+// чтобы исправить это передадим в setCount callback (prev => prev + 1)
+//React поместит функции обновления в очередь, а затем запустит их последовательно,
+// что приведет к повторному рендерингу с числом, установленным в 3.
+// const [count, setCount] = useState(0);
+
+// function increment() {
+//   setCount(c => c + 1);
+// }
+
+// function handleClick() {
+//   increment();
+//   increment();
+//   increment();
+// }
+
+
+
 const App = () => {
   const [count, setCount] = useState(0);
   // const count = 43;
