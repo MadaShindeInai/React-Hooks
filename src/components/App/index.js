@@ -64,4 +64,19 @@ export default App;
 //   increment();
 // }
 
+// Или можем использовать хук useReducer для описания боле сложного стэйта. Подробнее рассмотрим его в связке с useContext 
+// ближе к концу лекции.
+// const [counter, dispatch] = useReducer((state, action) => {
+//   if (action === 'increment') {
+//     return state + 1;
+//   } else {
+//     return state;
+//   }
+// }, 0);
+
+// function handleClick() {
+//   dispatch('increment');
+//   dispatch('increment');
+//   dispatch('increment');
+// }
 
