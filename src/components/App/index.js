@@ -15,13 +15,12 @@ const App = () => {
   // });
 
   // 2
-  
-  
+  // const clickAlert = () =>  alert(`I am click ${count} %%% ${count2}`);
   // useEffect(() => {
-  //   const clickAlert = () =>  alert(`I am click ${count}`);
   //   window.addEventListener('click', clickAlert)
   //   return () => window.removeEventListener('click', clickAlert)
-  // },[count]);
+  // // });
+  // },[count, count2]);
 
   // 3
   
