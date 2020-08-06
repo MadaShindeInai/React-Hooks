@@ -5,10 +5,10 @@ import './index.css';
 // 2
 // const hello = 'Hello';
 // const makeHelloooo = (hello) => {
-  //   const Helloooo = `${hello}111`;
-  //   console.log('RenderString');
-  //   return Helloooo;
-  // };
+//     const Helloooo = `${hello}111`;
+//     console.log('RenderString');
+//     return Helloooo;
+//   };
   
 // 3
 // const arrT= [10,9,8,7,6,5,4,3,2,1,0]; 
@@ -29,12 +29,12 @@ const App = () => {
   // 1
   // const clickAlert = useCallback(() =>  {console.log(`I am click ${count}`)},[count]);
   
-  useEffect(() => {
-    const clickAlert = () =>  alert(`I am click ${count}`);
-    const button = buttonRef.current;
-    button.addEventListener('click', clickAlert)
-    return () => button.removeEventListener('click', clickAlert)
-  },[count]);
+  // useEffect(() => {
+  //   // const clickAlert = () =>  alert(`I am click ${count}`);
+  //   const button = buttonRef.current;
+  //   button.addEventListener('click', clickAlert)
+  //   return () => button.removeEventListener('click', clickAlert)
+  // },[clickAlert]);
   
   //2
   // const memoisedMakeHelloooo = useMemo(()=> makeHelloooo(hello),[])
@@ -46,10 +46,10 @@ const App = () => {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>Counter value: {count}</p>
-          {/* <p>{makeHelloooo(hello)}</p>
-          <p>{memoisedMakeHelloooo}</p> */}
-          {/* <p>{sortArr(arrT)}</p>
-          <p>{memoisedMakeHelloooo2}</p> */}
+          {/* <p>{makeHelloooo(hello)}</p> */}
+          {/* <p>{memoisedMakeHelloooo}</p> */}
+          {/* <p>{sortArr(arrT)}</p> */}
+          {/* <p>{memoisedMakeHelloooo2}</p> */}
         <div
           className="App-link"
           ref={buttonRef}
