@@ -2,7 +2,7 @@ import React from 'react';
 import '../App/index.css';
 import NeApp3 from '../NeApp3';
 import {AppContext} from '../context/AppState'
-import useNeApp2 from './useNeApp2';
+// import useNeApp2 from './useNeApp2';
 
 const NeApp2 = () => {
   const num =  2;
