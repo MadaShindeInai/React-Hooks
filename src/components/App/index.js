@@ -1,12 +1,12 @@
 import React, {useState, useRef, useEffect} from 'react';
 import logo from '../../assets/images/svg/logo.svg';
-import NeApp from '../NeApp'
+// import NeApp from '../NeApp'
 import './index.css';
 
 const App = () => {
   const [count, setCount] = useState(0);
   const buttonRef = useRef(null);
-  const buttonRef2 = useRef(null);
+  // const buttonRef2 = useRef(null);
   // const latestCount = useRef(count);
 
   useEffect(() => {
@@ -46,9 +46,9 @@ const App = () => {
   //   }, 3000);
   // }
 
-  useEffect(() => {
-    setTimeout(()=> buttonRef2.current.style.backgroundColor="red", 5000)
-  }, [])
+  // useEffect(() => {
+  //   setTimeout(()=> buttonRef2.current.style.backgroundColor="red", 5000)
+  // }, [])
 
   return (
     <div className="App">
@@ -62,52 +62,10 @@ const App = () => {
         >
           Click to +1 count
         </div>
-        <NeApp count={count} ref={buttonRef2} buttonRef={buttonRef}/>
+        {/* <NeApp count={count} ref={buttonRef2} buttonRef={buttonRef}/> */}
       </header>
     </div>
   );
 }
 
 export default App;
-
-
-// function Counter() {
-//   // ...
-
-//   useEffect(
-//     // Функция эффекта из первого рендера
-//     () => {
-//       document.title = `You clicked ${0} times`;
-//     }
-//   );
-//   // ...
-
-// }
-
-// // После щелчка наша функция вызывается снова
-// function Counter() {
-//   // ...
-
-//   useEffect(
-//     // Функция эффекта из второго рендера
-//     () => {
-//       document.title = `You clicked ${1} times`;
-//     }
-//   );
-//   // ...
-
-// }
-
-// // После ещё одного щелчка функция вызывается снова
-// function Counter() {
-//   // ...
-
-//   useEffect(
-//     // Функция эффекта из третьего рендера
-//     () => {
-//       document.title = `You clicked ${2} times`;
-//     }
-//   );
-//   // ..
-
-// }

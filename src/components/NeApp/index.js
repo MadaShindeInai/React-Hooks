@@ -13,7 +13,7 @@ const NeApp = forwardRef(({count, buttonRef}, ref) => {
           ref={ref}
           onClick={() => {}}
         >
-          CurrentOffset&Count: {count}
+          CurrentCount: {count}
         </div>
   );
 });
