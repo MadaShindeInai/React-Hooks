@@ -5,7 +5,7 @@ import './index.css';
 
 const App = () => {
   const [count, setCount] = useState(0);
-  // const count = 43;
+  // const count = 33;
   // 1
   // const [ obj, setObj] = useState({a: 1, b: 2, c: 3});
   return (
@@ -19,13 +19,17 @@ const App = () => {
           className="App-link"
           // onClick={() => setObj({a: 2})}
           // onClick={() => setObj({...obj, a: 2})}
-          // onClick={() => {setCount((count) => count + 1); setCount((count) => count + 1); setCount((count) => count + 1);}}
-          onClick={() => setCount(count + 1)}
+          onClick={() => {setCount((count) => count + 1); setCount((count) => count + 1); setCount((count) => count + 1);}}
+          // onClick={() => {setCount(count + 1); setCount(count + 1); setCount(count + 1);}}
         >
           Click to +1
         </div>
-        {/* 
-         */}
+        {/* <div
+          className="App-link"
+          onClick={() => setTimeout(()=> alert(count), 5000)}
+        >
+          Send to event loop
+        </div> */}
       </header>
     </div>
   );
