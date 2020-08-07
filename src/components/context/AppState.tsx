@@ -7,7 +7,6 @@ type AppContextType = {
     count: number;
     id: string;
   },
-  dispatch: any
   increace: (payload: number) => void;
   decreace: () => void;
   makeZero: () => void;
@@ -27,7 +26,7 @@ export const AppState: FC<any> = ({children}) => {
   const makeZero = () => dispatch({type: COUNT_ZERO})
 
   return (
-    <AppContext.Provider value={{state, dispatch, increace, decreace, makeZero}}>
+    <AppContext.Provider value={{state, increace, decreace, makeZero}}>
       {children}
     </AppContext.Provider>
   );

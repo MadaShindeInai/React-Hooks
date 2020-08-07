@@ -8,7 +8,7 @@ const NeApp3 = () => {
     <>
       <div
         className="App-link"
-        onClick={() => makeZero()}
+        onClick={makeZero}
       >
         NeApp3 Count:{count}
       </div>
