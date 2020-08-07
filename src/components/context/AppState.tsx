@@ -1,5 +1,5 @@
 import React, {createContext, FC, useReducer} from 'react';
-import {COUNT_UP, COUNT_ZERO, COUNT_DOWN} from '../../constants';
+// import {COUNT_UP, COUNT_ZERO, COUNT_DOWN} from '../../constants';
 import appReducer from './appReducer';
 
 type AppContextType = {
@@ -15,7 +15,7 @@ export const AppContext = createContext({} as AppContextType);
 export const AppState: FC<any> = ({children}) => {
   const initialState = {
     count: 0,
-    id: Date.now.toString()
+    id: Date.now().toString()
   }
   const [state, dispatch] = useReducer(appReducer, initialState);
 
