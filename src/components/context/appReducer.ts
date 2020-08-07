@@ -4,7 +4,7 @@ type StateType = {
   id: string;
 };
 
-const appReducer = (state: StateType, action: any) => {
+const appReducer = (state: StateType, action: {type: string, payload: number}) => {
   switch (action.type){
     case COUNT_UP:
       return {
@@ -14,7 +14,7 @@ const appReducer = (state: StateType, action: any) => {
     case COUNT_DOWN:
       return {
         ...state,
-        count: state.count - 2,
+        count: state.count - action.payload,
       }
     case COUNT_ZERO:
       return {

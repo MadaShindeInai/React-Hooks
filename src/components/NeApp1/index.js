@@ -10,7 +10,7 @@ const NeApp1 = () => {
     <>
       <div
         className="App-link"
-        onClick={() => dispatch({type: COUNT_DOWN})}
+        onClick={() => dispatch({type: COUNT_DOWN, payload: 3})}
       >
         NeApp1 Count:{count}
       </div>

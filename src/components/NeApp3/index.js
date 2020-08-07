@@ -3,7 +3,7 @@ import '../App/index.css';
 import {COUNT_ZERO} from '../../constants';
 import {AppContext} from '../context/AppState'
 
-const NeApp3 = (props) => {
+const NeApp3 = () => {
   const {state:{count}, dispatch} = useContext(AppContext);
   return (
     <>
