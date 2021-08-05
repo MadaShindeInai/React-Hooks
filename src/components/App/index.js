@@ -1,54 +1,40 @@
-import React, {useState, useRef, useEffect} from 'react';
-import logo from '../../assets/images/svg/logo.svg';
-// import NeApp from '../NeApp'
-import './index.css';
+import React, { useState, useRef, useEffect } from "react";
+import logo from "../../assets/images/svg/logo.svg";
+import NeApp from "../NeApp";
+import "./index.css";
 
 const App = () => {
   const [count, setCount] = useState(0);
   const buttonRef = useRef(null);
-  // const buttonRef2 = useRef(null);
-  // const latestCount = useRef(count);
+  const labelInputRef = useRef(null);
 
   useEffect(() => {
     document.title = `You clicked ${count} times`;
   });
-  // 1
-  // useEffect(() => {
-  //   console.log('App',buttonRef);
-  //   const clickAlert = () =>  console.log(`I am click ${count}`);
-  //   // window.addEventListener('click', clickAlert)
-  //   // return () => window.removeEventListener('click', clickAlert)
-  //   const button = buttonRef.current;
-  //   button.addEventListener('click', clickAlert)
-  //   return () => button.removeEventListener('click', clickAlert)
-  // },[count]);
 
-  // 2
+  useEffect(() => {
+    const clickAlert = () => console.log(`I am click ${count}`);
+    const button = buttonRef.current;
+    button.addEventListener("click", clickAlert);
+    return () => button.removeEventListener("click", clickAlert);
+  }, [count]);
 
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     console.log(`You clicked ${count} times`);
-  //   }, 3000);
-  // });
-  // !!!!!!!!!!!
-  // useEffect(() => {
-  //   // Установить мутабельное значение в самое свежее состояние count
-  //   latestCount.current = count;
-  //   setTimeout(() => {
-  //     // Прочитать мутабельное значение с самыми свежими данными
-  //     console.log(`You clicked ${latestCount.current} times`);
-  //   }, 3000);
-  // });
+  useEffect(() => {
+    setTimeout(
+      () => (labelInputRef.current.count.style.backgroundColor = "red"),
+      5000
+    );
+    setTimeout(
+      () => (labelInputRef.current.label.style.backgroundColor = "blue"),
+      5000
+    );
+  }, []);
 
-  // componentDidUpdate() {
-  //   setTimeout(() => {
-  //     console.log(`You clicked ${this.state.count} times`);
-  //   }, 3000);
-  // }
-
-  // useEffect(() => {
-  //   setTimeout(()=> buttonRef2.current.style.backgroundColor="red", 5000)
-  // }, [])
+  const onCheckChildRefs = () => {
+    console.log("labelInputRef.current.count", labelInputRef.current.count); // works
+    console.log("labelInputRef.current.label", labelInputRef.current.label); // works
+    labelInputRef.current.alwaysBlue();
+  };
 
   return (
     <div className="App">
@@ -62,10 +48,13 @@ const App = () => {
         >
           Click to +1 count
         </div>
-        {/* <NeApp count={count} ref={buttonRef2} buttonRef={buttonRef}/> */}
+        <NeApp count={count} ref={labelInputRef} buttonRef={buttonRef} />
+        <div className="App-link" onClick={onCheckChildRefs}>
+          Check refs from child component
+        </div>
       </header>
     </div>
   );
-}
+};
 
 export default App;
